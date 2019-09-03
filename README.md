@@ -24,7 +24,7 @@ Project is created with:
 ## Single-level Analyses
 - Grid
   - Grid is a software for the manual classification of cells in CyTOF samples and then the automatic classification of cells in new samples through the use of machine learning techniques based on these manual classifications.
-  -To run Grid, install it using:
+  - To run Grid, install it using:
 ```
 $ pip install cellgrid
 ```
