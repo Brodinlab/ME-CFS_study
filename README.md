@@ -1,4 +1,4 @@
-# ME-CFS_study
+# ME/CFS INMEST Study
 ME/CFS study from two clinical cohorts (INMEST) for single-level analyses and omics integration.
 
 ## Table of contents
