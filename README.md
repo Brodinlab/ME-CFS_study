@@ -24,6 +24,10 @@ Project is created with:
 ## Single-level Analyses
 - Grid
   - Grid is a software for the manual classification of cells in CyTOF samples and then the automatic classification of cells in new samples through the use of machine learning techniques based on these manual classifications.
+  -To run Grid, install it using:
+```
+$ pip install cellgrid
+```
 - DESeq2 (Differential Gene Expression Analysis)
   - https://dx.doi.org/10.1186%2Fs13059-014-0550-8 
 - GSEA (Gene Set Enrichment Analysis)
