@@ -4,7 +4,7 @@ ME/CFS study from two clinical cohorts (INMEST) for single-level analyses and om
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Single-level Analyses](#single-level-analyses)
+* [Single-level analyses](#single-level-analyses)
 * [Omics integration](#omics-integration)
 * [Setup](#setup)
 
@@ -21,7 +21,7 @@ Project is created with:
 * RStudio version: 3.6.0
 * Python version: 2.7
 
-## Single-level Analyses
+## Single-level analyses
 - Grid
   - Grid is a software for the manual classification of cells in CyTOF samples and then the automatic classification of cells in new samples through the use of machine learning techniques based on these manual classifications.
   - To run Grid, install it using:
