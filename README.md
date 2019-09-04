@@ -20,6 +20,7 @@ Single-level analyses and omics-integration was performed in order to characteri
 Project is created with:
 * RStudio version: 3.6.0
 * Python version: 2.7
+* Unix/Linux
 
 ## Single-level analyses
 - Grid
@@ -29,7 +30,8 @@ Project is created with:
 $ pip install cellgrid
 ```
 - DESeq2 (Differential Gene Expression Analysis)
-  - https://dx.doi.org/10.1186%2Fs13059-014-0550-8 
+  - Read more on DESeq2 here: https://dx.doi.org/10.1186%2Fs13059-014-0550-8 
+  - Used Kallisto output for DESeq2 run 
 - GSEA (Gene Set Enrichment Analysis)
 - Mixed-effect modeling
 
