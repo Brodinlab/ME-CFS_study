@@ -25,7 +25,7 @@ Project is created with:
 
 ## Repo description
 - ```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
-- ```MOFA/``` contains script to train MOFA model as well as already trained model
+- ```MOFA/``` contains script to train MOFA model as well as already trained models
 
 ## Single-level analyses
 ### Grid
@@ -35,11 +35,8 @@ Project is created with:
 $ pip install cellgrid
 ```
 ### DESeq2 (Differential Gene Expression Analysis)
-- The principles behind DESeq2 is described in [Love et al. (2014)] (https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
+- The principles behind DESeq2 is described in [Love et al. (2014)](https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
 - Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
-  
-### GSEA (Gene Set Enrichment Analysis)
-### Mixed-effect modeling
 
 ## Omics integration
 ### MOFA
