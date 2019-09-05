@@ -24,8 +24,8 @@ Project is created with:
 * Unix/Linux
 
 ## Repo description
-```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
-```MOFA/``` contains script to train MOFA model as well as already trained model
+- ```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
+- ```MOFA/``` contains script to train MOFA model as well as already trained model
 
 ## Single-level analyses
 ### Grid
