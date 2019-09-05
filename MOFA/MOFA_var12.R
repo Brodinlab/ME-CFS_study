@@ -181,6 +181,7 @@ MOFAweights <- getWeights(
   as.data.frame = TRUE    # if TRUE, it outputs a long dataframe format. If FALSE, it outputs a wide matrix format
 )
 MOFAweights
+#can be used for further downstream analysis with Factors
 write.csv(MOFAweights, file='MOFAweights.csv')
 
 factor1 <- sort(getFactors(MOFAobject,"LF2")[,1])
@@ -191,6 +192,7 @@ df <- data.frame(
 )
 
 df1 <- getFactors(MOFAobject, 'all')
+#can be used for further downstream analysis with Weights
 write.csv(df1, file='AllFactors.csv')
 
 plotDataHeatmap(
