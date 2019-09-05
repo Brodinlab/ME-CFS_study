@@ -3,7 +3,8 @@ ME/CFS study from two clinical cohorts (INMEST) for single-level analyses and om
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
+* [Dependencies](#dependencies)
+* [Repo description](#repo-description)
 * [Single-level analyses](#single-level-analyses)
 * [Omics integration](#omics-integration)
 * [Setup](#setup)
@@ -16,27 +17,34 @@ This project used multiple data sets:
 
 Single-level analyses and omics-integration was performed in order to characterize this heterogeneous ME/CFS cohort and the effects of the INMEST treatment throughout the clinical trial.
 	
-## Technologies
+## Dependencies
 Project is created with:
 * RStudio version: 3.6.0
 * Python version: 2.7
 * Unix/Linux
 
+## Repo description
+```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
+```MOFA/``` contains script to train MOFA model as well as already trained model
+
 ## Single-level analyses
-- Grid
-  - Grid is a software for the manual classification of cells in CyTOF samples and then the automatic classification of cells in new samples through the use of machine learning techniques based on these manual classifications.
-  - To run Grid, install it using:
+### Grid
+- Grid is a software for the manual classification of cells in CyTOF samples and then the automatic classification of cells in new samples through the use of machine learning techniques based on these manual classifications.
+- To run Grid, install it using:
 ```
 $ pip install cellgrid
 ```
-- DESeq2 (Differential Gene Expression Analysis)
-  - Read more on DESeq2 here: https://dx.doi.org/10.1186%2Fs13059-014-0550-8 
-  - Used Kallisto output for DESeq2 run 
-- GSEA (Gene Set Enrichment Analysis)
-- Mixed-effect modeling
+### DESeq2 (Differential Gene Expression Analysis)
+- The principles behind DESeq2 is described in [Love et al. (2014)] (https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
+- Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
+  
+### GSEA (Gene Set Enrichment Analysis)
+### Mixed-effect modeling
 
 ## Omics integration
-Multi-Omics Factor Analysis (MOFA) was used in this study in order to deconvolute the main sources of variation in the differents sets of data mentioned above. For more information, read their published Methods paper (https://www.embopress.org/doi/10.15252/msb.20178124). MOFA is publicly accessible here: https://github.com/bioFAM/MOFA 
+### MOFA
+- Multi-Omics Factor Analysis (MOFA) was used in this study in order to deconvolute the main sources of variation in the differents sets of data mentioned above. For more information, read their published Methods paper [Argelaguet et al. (2018)](https://www.embopress.org/doi/10.15252/msb.20178124). 
+- MOFA is publicly accessible here: https://github.com/bioFAM/MOFA 
 - Trained MOFA models made available for this study for direct use in downstream analysis	
 	
 ## Setup
