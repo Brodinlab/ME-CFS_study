@@ -57,17 +57,17 @@ all.equal(txi$counts, txi.sum$counts)
 samples$condition <- factor(rep(c("preKOS","postKOS")))
 rownames(samples) <- samples$run
 colnames(txi$counts) =samples$run
-ddsTxi <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ condition) #cohort +
+ddsTxi <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ condition) 
 
 #--------------------------------------------------------
 #Filter out genes with low counts
 rs <- rowSums(counts(ddsTxi))
 minrs = 100
-dds<-ddsTxi[ rs >= minrs, ]
+dds <- ddsTxi[ rs >= minrs, ]
 
 #Normalize and VST option
-dds<-estimateSizeFactors(dds)
-dds <- varianceStabilizingTransformation(dds) #does not work for counts
+dds <- estimateSizeFactors(dds)
+dds <- varianceStabilizingTransformation(dds) 
 
 #--------------------------------------------------------
 class(dds)
@@ -94,7 +94,6 @@ results(dds)
 #Export results to CSV files
 setwd('~/Documents/MOFA/') 
 
-ddssva1 <- counts(ddssva, normalized=TRUE)
 write.csv(as.data.frame(mat2), file = 'deseq_ME12_mat.csv') #use this in MOFA
 
 write.csv(as.data.frame(res), file = 'deseq_ME12_results.csv')
@@ -133,7 +132,7 @@ with(res[topGene, ], {
 #Plot counts for individual genes
 plotCounts(dds, gene=topGene, intgroup=c("condition"))
 
-#FDR <0.5 -NONE
+#FDR <0.5 
 res.05 <- results(dds, alpha=.05)
 table(res.05$padj < .05)
 summary(res)
