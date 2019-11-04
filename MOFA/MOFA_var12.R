@@ -6,10 +6,10 @@ library(mofapy)
 library(rhdf5)
 
 # Using a specific python binary
-py_install("mofapy", envname = "r-reticulate", method="auto") #method = auto
-use_python('/Users/lucie.rodriguez/.virtualenvs/r-reticulate/bin/python', required = TRUE) #"/usr/bin/python"
+py_install("mofapy", envname = "r-reticulate", method="auto") 
+use_python('/Users/lucie.rodriguez/.virtualenvs/r-reticulate/bin/python', required = TRUE) 
 mofapy <- import('mofapy')
-py_install("MOFAdata", envname = "r-reticulate", method="auto") #method = auto
+py_install("MOFAdata", envname = "r-reticulate", method="auto") 
 source("http://bioconductor.org/biocLite.R")
 biocLite("rhdf5")
 
@@ -40,7 +40,7 @@ d_meta = as.data.frame(d_meta)
 head(d_meta)
 d_meta
 
-#MOFA object
+#MOFA object (MAE)
 ME_data = list(d_olink, d_grid, d_deseq)
 names(ME_data) <- c('Plasma Protein', 'Cell Population', 'mRNA')
 mae_ME <- MultiAssayExperiment(experiments = ME_data, colData = d_meta)
@@ -57,7 +57,7 @@ ModelOptions$numFactors <- 10
 ModelOptions
 
 TrainOptions <- getDefaultTrainOptions()
-#TrainOptions$DropFactorThreshold <- 0.02
+TrainOptions$DropFactorThreshold <- 0.01
 TrainOptions
 
 MOFAobject <- prepareMOFA(
@@ -85,7 +85,7 @@ plotVarianceExplained(MOFAobject)
 condition <- getCovariates(MOFAobject, 'Group')
 condition
 
-#plot a heatmap of the loadings from multiple factors in a given view
+#Plot a heatmap of the loadings from multiple factors in a given view
 plotWeightsHeatmap(
   MOFAobject, 
   view = "mRNA", 
@@ -93,14 +93,14 @@ plotWeightsHeatmap(
   show_colnames = TRUE
 )
 
-#plot the top loadings for a given factor and view
+#Plot the top loadings for a given factor and view
 plotTopWeights(
   MOFAobject, 
   view = "mRNA", 
   factor = 2
 )
 
-#plot all loadings for a given factor and view
+#Plot all loadings for a given factor and view
 plotWeights(
   MOFAobject, 
   view = "mRNA", 
@@ -131,35 +131,6 @@ plotFactorBeeswarm(
   factors = 2,
   color_by = "Group"
 )
-
-# Load reactome annotations
-data('reactomeGS') # binary matrix with feature sets in rows and features in columns
-
-# perform enrichment analysis
-gsea <- runEnrichmentAnalysis(
-  MOFAobject,
-  view = "mRNA",
-  feature.sets = reactomeGS,
-  alpha = 0.01
-)
-
-plotEnrichmentBars(gsea, alpha=0.01)
-
-#Plot top enriched pathways for every factor
-interestingFactors <- 6:7
-
-fseaplots <- lapply(interestingFactors, function(factor) {
-  plotEnrichment(
-    MOFAobject,
-    gsea,
-    factor = factor,
-    alpha = 0.01,
-    max.pathways = 10 # The top number of pathways to display
-  )
-})
-
-cowplot::plot_grid(fseaplots[[1]], fseaplots[[2]],
-                   ncol = 1, labels = paste("Factor", interestingFactors))
 
 set.seed(1234)
 clusters <- clusterSamples(
