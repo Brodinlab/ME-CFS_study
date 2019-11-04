@@ -70,23 +70,14 @@ dds <- estimateSizeFactors(dds)
 dds <- varianceStabilizingTransformation(dds) 
 
 #--------------------------------------------------------
-class(dds)
-#Remove batch effect - ComBat SVA
-dat  <- counts(dds, normalized = TRUE) 
-idx  <- rowMeans(dat) > 1
-dat  <- dat[idx, ]
-mod  <- model.matrix(~ cohort, colData(dds))
-svseq <- svaseq(dat, mod, n.sv = 1)
-
-ddssva <- dds
-ddssva$SV1 <- svseq$sv[,1]
-design(ddssva) <- ~ SV1 + cohort
-head(ddssva)
-ddssva
+#Remove batch effect - limma
+mat1 <- assay(dds) 
+library(limma)
+mat2 <- removeBatchEffect(mat1, dds$cohort) #rename mat2 -> dds 
 
 #Run DESeq2
-ddssva$condition <- factor(ddssva$condition, levels = c("preKOS","postKOS"))
-dds <- DESeq(ddssva)
+dds$condition <- factor(dds$condition, levels = c("preKOS","postKOS"))
+dds <- DESeq(dds)
 dds
 res=results(dds)
 results(dds)
