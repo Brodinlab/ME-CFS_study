@@ -42,7 +42,6 @@ $ pip install cellgrid
 ### MOFA
 - Multi-Omics Factor Analysis (MOFA) was used in this study in order to deconvolute the main sources of variation in the differents sets of data mentioned above. For more information, read their published Methods paper [Argelaguet et al. (2018)](https://www.embopress.org/doi/10.15252/msb.20178124). 
 - MOFA is publicly accessible here: https://github.com/bioFAM/MOFA 
-- Trained MOFA models (.hdf5 files) made available for this study for direct use in downstream analysis	
 	
 ## Setup
 To run this project, install it locally using devtools:
