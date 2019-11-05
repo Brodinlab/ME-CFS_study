@@ -1,5 +1,5 @@
 # ME/CFS INMEST Study
-ME/CFS study from two clinical cohorts (INMEST) for single-level analyses and omics integration.
+ME/CFS study from Swedish clinical cohort (INMEST) for single-level analyses and omics integration.
 
 ## Table of contents
 * [General info](#general-info)
@@ -10,9 +10,9 @@ ME/CFS study from two clinical cohorts (INMEST) for single-level analyses and om
 * [Setup](#setup)
 
 ## General info
-This project used multiple data sets:
-- Olink panels (plasma protein expression - NPX)
-- CyTOF (Grid)
+This project used multiple omics data:
+- Plasma protein expression (Olink panels - NPX)
+- Cell abundance (CyTOF - Grid)
 - mRNA sequencing (VST counts)
 
 Single-level analyses and omics-integration was performed in order to characterize this heterogeneous ME/CFS cohort and the effects of the INMEST treatment throughout the clinical trial.
