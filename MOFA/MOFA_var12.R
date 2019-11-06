@@ -22,6 +22,8 @@ BiocManager::install("mofapy", version = "3.9")
 BiocManager::install("ggplot", version = "3.9")
 
 setwd('~/Documents/MOFA/') #set working directories
+
+#Experimental data (features=rows, samples=columns)
 #Load Olink data
 d_olink = read.csv('Olink_ME12.csv', sep=';', row.names = 1, header = TRUE)
 d_olink = as.data.frame(t(d_olink))
@@ -38,7 +40,6 @@ head(d_deseq)
 d_meta = read.csv('ME_metadata.csv', sep=';', row.names = 1)
 d_meta = as.data.frame(d_meta)
 head(d_meta)
-d_meta
 
 #MOFA object (MAE)
 ME_data = list(d_olink, d_grid, d_deseq)
@@ -110,8 +111,12 @@ plotWeights(
 #correlation plot between factors -> should be uncorrelated
 plotFactorCor(MOFAobject, method = 'pearson')
 
-#scatterplot between two factors, similar to PCA
-plotFactorScatters(MOFAobject, factors = 1:5, color_by = 'ID', shape_by='Group') 
+#scatterplot, similar to PCA can be manipulated with ggplot functions
+plotFactorScatters(MOFAobject, factors = 1:10, color_by = 'Active.Treatment') #any covariate or feature
+
+#used subsetSamples() function then plotDataScatter() -> raw data vs. LFs
+plotDataScatter(subset_AT8out, view = 'mRNA', factor = 7, 
+                      features=12, color_by='Active.Treatment')
 
 set.seed(1234)
 clusters <- clusterSamples(
@@ -184,23 +189,3 @@ plotWeights(
   abs = FALSE,
   scale = FALSE
 )
-
-#Correlation
-library(ggplot2)
-library(ggpubr)
-ID <-getCovariates(MOFAobject,'ID') #Active.Treatment / Relative.SS
-cdr <-getCovariates(MOFAobject,'log2.ratio') #Active.Treatment / Relative.SS
-
-factor2 <- getFactors(MOFAobject,
-                      factors=2)
-LF2 <- data.frame(factor = as.numeric(factor2), cdr = cdr)
-ggplot(LF2, aes_string(x = "factor", y = "cdr")) + 
-  geom_point() + xlab("Factor 2") +
-  ylab("log2.ratio") +
-  stat_smooth(method="lm") +
-  geom_line(aes(group=ID), lty = 2, colour = "purple") +
-  theme_bw()
- 
-
-res.cor <- cor.test(foo$factor, foo$cdr, method = "pearson")
-res.cor
