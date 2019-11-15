@@ -42,7 +42,6 @@ isSingular(me_lmer.model, tol=1e-05)
 summary(me_lmer.model)
 
 # Create table of MEM model either with tab_model() or stargazer()
-library(sjPlot)
 setwd('~/Documents/Mixed_Effects_Model/AT_rerun/MEM_table') 
 tab_model(me_lmer.model,me_mem4.model,me_mem20.model, file = 'tableME_grid_trial.html')
 
