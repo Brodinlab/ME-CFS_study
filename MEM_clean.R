@@ -34,7 +34,7 @@ dfs <- me_memG_df
 dfs[,numcols] <- scale(dfs[,numcols])
 me_lmer.model <- update(me_lmer.model,data=dfs)
 
-# Evaluates whther a fitted mixed model is singular, if singular TRUE then opt for solution 
+# Evaluates whether a fitted mixed model is singular, if singular TRUE then opt for solution 
 # One of these solutions being a partial bayesion model especially with complex models
 isSingular(me_lmer.model, tol=1e-05)
 
