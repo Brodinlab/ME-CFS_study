@@ -7,6 +7,7 @@ ME/CFS study from Swedish clinical cohort (INMEST) for single-level analyses and
 * [Repo description](#repo-description)
 * [Single-level analyses](#single-level-analyses)
 * [Omics integration](#omics-integration)
+* [Figures](#figures)
 * [Setup](#setup)
 
 ## General info
@@ -37,12 +38,21 @@ $ pip install cellgrid
 ### DESeq2 (Differential Gene Expression Analysis)
 - The principles behind DESeq2 is described in [Love et al. (2014)](https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
 - Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
+### GSEA
+### Mixed-Effect modelling
 
 ## Omics integration
 ### MOFA
 - Multi-Omics Factor Analysis (MOFA) was used in this study in order to deconvolute the main sources of variation in the differents sets of data mentioned above. For more information, read their published Methods paper [Argelaguet et al. (2018)](https://www.embopress.org/doi/10.15252/msb.20178124). 
 - MOFA is publicly accessible here: https://github.com/bioFAM/MOFA 
-	
+
+## Figures
+### Clinical response
+### Spearman Correlation 
+### GO plots
+### Volcano MEM 
+### Metabolomic data trend
+
 ## Setup
 To run this project, install it locally using devtools:
 
