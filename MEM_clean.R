@@ -34,7 +34,7 @@ dfs <- me_memG_df
 dfs[,numcols] <- scale(dfs[,numcols])
 me_lmer.model <- update(me_lmer.model,data=dfs)
 
-# Evaluates whether a fitted mixed model is singular, if singular TRUE then opt for solution 
+# Evaluates whther a fitted mixed model is singular, if singular TRUE then opt for solution 
 # One of these solutions being a partial bayesion model especially with complex models
 isSingular(me_lmer.model, tol=1e-05)
 
@@ -42,6 +42,7 @@ isSingular(me_lmer.model, tol=1e-05)
 summary(me_lmer.model)
 
 # Create table of MEM model either with tab_model() or stargazer()
+library(sjPlot)
 setwd('~/Documents/Mixed_Effects_Model/AT_rerun/MEM_table') 
 tab_model(me_lmer.model,me_mem4.model,me_mem20.model, file = 'tableME_grid_trial.html')
 
