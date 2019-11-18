@@ -54,7 +54,6 @@ $ pip install cellgrid
 - MOFA is publicly accessible here: https://github.com/bioFAM/MOFA 
 
 ## Figures
-### Clinical response
 ### Spearman Correlation 
 - ```spearman_corrmatrix.R``` uses cell abundance dataframe built from Grid that is sub-setted by active treatments for correlation
 - Option to re-order one matrix in accordance to the other for comparison purposes
@@ -64,7 +63,6 @@ $ pip install cellgrid
 - Solely, significant features of MEM used
 ### Volcano MEM 
 - ```Volcano_MEM_clean.R``` reads in generated MEM table built in ```MEM_clean.R``` to build volcano plots of features with significant ones highlighted and a top sub-set of them labeled 
-### Metabolomic data trend
 
 ## Setup
 To run this project, install it locally using devtools:
