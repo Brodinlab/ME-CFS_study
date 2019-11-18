@@ -29,6 +29,7 @@ Project is created with:
 - ```MOFA/``` contains script to train MOFA model and some functions to uncover sources of variation 
 - ```Figures/``` contains scripts used for analyses and figures displayed in paper 
 - ```MEM_clean.R``` used for mixed-effect modelling  
+- ```gsea_clean.R``` used for gene set enrichment analyses and enrichment plot  
 
 ## Single-level analyses
 ### Grid
@@ -40,7 +41,9 @@ $ pip install cellgrid
 ### DESeq2 (Differential Gene Expression Analysis)
 - The principles behind DESeq2 is described in [Love et al. (2014)](https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
 - Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
-### GSEA
+### GSEA (Gene Set Enrichment Analyses)
+- clusterProfiler::gseGO() used in ```gsea_clean.R``` to run hierarchical gsea and plot 
+- Also, extracts results from GSEA used in ```GO_plot.R```
 ### Mixed-Effect modelling
 - Partial-bayesian mixed-effect modelling to account for covariates 
 - ```MEM_clean.R``` extracts confounding variables for downstream use in GSEA for example, after modelling
