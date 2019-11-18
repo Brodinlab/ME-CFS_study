@@ -25,8 +25,10 @@ Project is created with:
 * Unix/Linux
 
 ## Repo description
-- ```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
+- ```DESeq2/``` contains script to prep Kallisto as well as convert Kallisto estimates and run DESeq2
 - ```MOFA/``` contains script to train MOFA model and some functions to uncover sources of variation 
+- ```Figures/``` contains scripts used for analyses and figures displayed in paper 
+- ```MEM_clean.R``` used for mixed-effect modelling  
 
 ## Single-level analyses
 ### Grid
@@ -40,6 +42,8 @@ $ pip install cellgrid
 - Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
 ### GSEA
 ### Mixed-Effect modelling
+- Partial-bayesian mixed-effect modelling to account for covariates 
+- ```MEM_clean.R``` extracts confounding variables for downstream use in GSEA for example, after modelling
 
 ## Omics integration
 ### MOFA
@@ -49,8 +53,14 @@ $ pip install cellgrid
 ## Figures
 ### Clinical response
 ### Spearman Correlation 
+- ```spearman_corrmatrix.R``` uses cell abundance dataframe built from Grid that is sub-setted by active treatments for correlation
+- Option to re-order one matrix in accordance to the other for comparison purposes
 ### GO plots
+- Post GSEA, ```GO_plot.R``` extracts set of genes associated with GO terms to plot
+- Original counts used to calculate median expression and log2 ratio for active treatments (covariate)
+- Solely, significant features of MEM used
 ### Volcano MEM 
+- ```Volcano_MEM_clean.R``` reads in generated MEM table built in ```MEM_clean.R``` to build volcano plots of features with significant ones highlighted and a top sub-set of them labeled 
 ### Metabolomic data trend
 
 ## Setup
