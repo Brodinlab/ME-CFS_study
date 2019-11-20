@@ -105,9 +105,9 @@ varlist1 <- lapply(blups.models_nextG, function(f) summary(f)$call[2])
 varlist1
 
 # Correlation Coefficient
-estimate_AT <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[6,1])
-estimate_KOS <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[5,1])
-estimate_SS <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[4,1])
+CC_AT <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[6,1])
+CC_KOS <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[5,1])
+CC_SS <- lapply(blups.models_nextG, function(f) summary(f)$coefficients[4,1])
 
 # R^2 and adjusted
 R2 <- lapply(blups.models_nextG, function(f) summary(f)$r.squared)
@@ -136,8 +136,8 @@ df.pvalueAT <-t(df.pvalueAT)
 df.pvalueAT = df.pvalueAT[seq(0, nrow(df.pvalueAT), 2), ]
 
 # Prepare dataframe with extracted info. for downstream use
-test_data = list(as.character(varlist1), med_calc, estimate_AT, estimate_KOS, estimate_SS, as.numeric(t(df.pvalueSS)), as.numeric(t(df.pvalueKOS)), as.numeric(t(df.pvalueAT)))
-names(test_data) <- c('cells', 'Median', 'Estimate_AT', 'Estimate_KOS', 'Estimate_SS', 'pvalueSS', 'pvalueKOS', 'pvalueAT')
+test_data = list(as.character(varlist1), med_calc, CC_AT, CC_KOS, CC_SS, as.numeric(t(df.pvalueSS)), as.numeric(t(df.pvalueKOS)), as.numeric(t(df.pvalueAT)))
+names(test_data) <- c('cells', 'Median', 'Corr_coeff_AT', 'Corr_coeff_KOS', 'Corr_coeff_SS', 'pvalueSS', 'pvalueKOS', 'pvalueAT')
 
 test_final <- as.data.frame(do.call(rbind, test_data))
 t(test_final)
