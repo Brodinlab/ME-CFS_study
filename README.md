@@ -12,8 +12,8 @@ ME/CFS study from Swedish clinical cohort (INMEST) for single-level analyses and
 
 ## General info
 This project used multiple omics data:
-- Plasma protein expression (Olink panels - NPX)
-- Cell abundance (CyTOF - Grid)
+- Plasma protein expression (Olink - NPX values)
+- Cell abundance (CyTOF - Grid cell abundance)
 - mRNA sequencing (VST counts)
 
 Single-level analyses and omics-integration was performed in order to characterize this heterogeneous ME/CFS cohort and the effects of the INMEST treatment throughout the clinical trial.
@@ -42,7 +42,7 @@ $ pip install cellgrid
 - The principles behind DESeq2 is described in [Love et al. (2014)](https://dx.doi.org/10.1186%2Fs13059-014-0550-8)
 - Used Kallisto outputs (estimates) that were converted into read counts using ```tximport``` before running DESeq2 with ```deseq_run.R``` 
 ### GSEA (Gene Set Enrichment Analyses)
-- clusterProfiler::gseGO() used in ```gsea_clean.R``` to run hierarchical gsea and plot 
+- ```clusterProfiler::gseGO()``` used in ```gsea_clean.R``` to run hierarchical gsea and plot 
 - Also, extracts results from GSEA used in ```GO_plot.R```
 ### Mixed-Effect modelling
 - Partial-bayesian mixed-effect modelling to account for covariates 
