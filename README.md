@@ -63,6 +63,8 @@ $ pip install cellgrid
 - Solely, significant features of MEM used
 ### Volcano MEM 
 - ```Volcano_MEM_clean.R``` reads in generated MEM table built in ```MEM_clean.R``` to build volcano plots of features with significant ones highlighted and a top sub-set of them labeled 
+### Disease Tolerance Network 
+- ```visNetwork_clean.R``` reads in an edge and node file manipulated from TTRUST v2 output to build disease tolerance network with color gradient based on log2 expression and size of nodes from number of regulatory interactions
 
 ## Setup
 To run this project, install it locally using devtools:
