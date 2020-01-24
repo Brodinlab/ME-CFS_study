@@ -1,5 +1,5 @@
 # ME/CFS INMEST Study
-ME/CFS study from Swedish clinical cohort (INMEST) for single-level analyses and omics integration.
+ME/CFS study from Swedish clinical cohort (INMEST): single-level analyses and omics integration.
 
 ## Table of contents
 * [General info](#general-info)
