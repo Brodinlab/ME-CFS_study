@@ -25,7 +25,7 @@ Project is created with:
 * Unix/Linux
 
 ## Repo description
-- ```DESeq2/``` contains script to prep Kallisto as well as convert Kallisto estimates and run DESeq2
+- ```DESeq2/``` contains script to convert Kallisto estimates and run DESeq2
 - ```MOFA/``` contains script to train MOFA model and some functions to uncover sources of variation 
 - ```Figures/``` contains scripts used for analyses and figures displayed in paper 
 - ```MEM_clean.R``` used for mixed-effect modelling  
