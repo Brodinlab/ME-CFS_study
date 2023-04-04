@@ -72,6 +72,6 @@ To run this project, install it locally using devtools:
 ```
 $ install.packages('devtools')
 $ library(devtools)
-$ install_github('rodriluc/ME-CFS_study')
+$ install_github('Brodinlab/ME-CFS_study')
 $ library(ME-CFS_study)
 ```
